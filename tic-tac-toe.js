@@ -31,8 +31,14 @@ function renderGameboard() {
 
         if (board[i] === undefined) {
             square.innerHTML = "";
-        } else {
-            square.innerHTML = board[i];
+        } else if (board[i] == "x") {
+            const icon = document.createElement("img");
+            icon.setAttribute("src", "./icons/heart.png");
+            square.appendChild(icon);
+        } else if (board[i] == "o") {
+            const icon = document.createElement("img");
+            icon.setAttribute("src", "./icons/happy.png");
+            square.appendChild(icon);
         }
 
         square.addEventListener("click", playersTurn);
@@ -51,7 +57,6 @@ function getPlayersName() {
 
 function showPlayersTurn(player) {
     document.getElementById("player-turn").innerHTML = player + ", it's your turn!";
-    //    document.getElementById("player-turn").innerHTML = playerTwo.name + ", it's your turn!";
 }
 
 function playersTurn(event) {
@@ -65,7 +70,6 @@ function playersTurn(event) {
             if (game.symbol == 0 || game.symbol == "o") {
                 board[event.target.id] = "x";
                 showPlayersTurn(playerTwo.name);
-                //document.getElementById("player-turn").innerHTML = playerTwo.name + ", it's your turn!";
 
                 game.numberOfMove = game.numberOfMove + 1;
                 game.numberOfCell = event.target.id;
@@ -74,18 +78,17 @@ function playersTurn(event) {
             } else if (game.symbol == "x") {
                 board[event.target.id] = "o";
                 showPlayersTurn(playerOne.name);
-                //document.getElementById("player-turn").innerHTML = playerOne.name + ", it's your turn!";
 
                 game.numberOfMove = game.numberOfMove + 1;
                 game.numberOfCell = event.target.id;
                 game.symbol = board[event.target.id];
             }
         }
-        checkWinner();
+
         deleteDOMGameboard();
         renderGameboard();
+        checkWinner();
     }
-
 }
 
 function deleteDOMGameboard() {
@@ -130,10 +133,11 @@ function checkWinner() {
     ) {
         alert(playerTwo.name + " is winner!");
         playAgain();
-        
+
     } else if (board[0] !== undefined && board[1] !== undefined && board[2] !== undefined &&
         board[3] !== undefined && board[4] !== undefined && board[5] !== undefined && board[6] !== undefined &&
-        board[7] !== undefined && board[8] !== undefined) {
+        board[7] !== undefined && board[8] !== undefined
+    ) {
         alert("It's a draw!");
         playAgain();
     }
