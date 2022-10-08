@@ -1,0 +1,80 @@
+body {
+    margin: 0;
+}
+
+#content {
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: center;
+    background-color: rgb(241, 191, 152);
+    color: rgb(8, 65, 92);
+    height: 100vh;
+}
+
+#inputs {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    justify-content: center;
+    align-items: center;
+}
+
+#btn-play {
+    background-color: rgb(8, 65, 92);
+    border: none;
+    color: white;
+    padding: 10px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin-top: 10px;
+}
+
+#btn-play:hover {
+    background-color: rgb(6, 47, 67);
+    cursor: pointer;
+}
+
+#gameboard-div {
+    padding-top: 20px;
+}
+
+.squares {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 10px;
+    background-color: rgb(243, 245, 246);
+    padding: 10px;
+}
+
+.square {
+    background-color: rgb(220, 86, 97);
+    height: 130px;
+    width: 130px;
+    height: 130px;
+    width: 130px;
+    font-size: 100px;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+}
+
+.square:hover {
+    background-color: rgb(213, 64, 77);
+    cursor: pointer;
+}
+
+#player-turn {
+    padding: 10px 0px;
+    background-color: rgb(243, 245, 246);
+    color: rgb(8, 65, 92);
+    width: 100%;
+    margin-top: 20px;
+    align-content: center;
+    display: flex;
+    justify-content: center;
+    font-weight: 800;
+}
